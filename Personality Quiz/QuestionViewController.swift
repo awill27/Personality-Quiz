@@ -37,51 +37,82 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var rangedStackView: UIStackView!
     @IBOutlet weak var rangedLabel1: UILabel!
+    
+    
     @IBOutlet weak var rangedLabel2: UILabel!
+    
+    @IBOutlet weak var rangedLabel3: UILabel!
+    
+    @IBOutlet weak var rangedLabel4: UILabel!
     
     @IBOutlet weak var rangedSlider: UISlider!
     
     @IBOutlet weak var questionProgressView: UIProgressView!
     
     
-    //I DISCOVERED ALOT OF MY CODE DID NOT SAVE WHEN XCODE WAS CRASHING 9/29//
+    //I DISCOVERED ALOT OF MY CODE DID NOT SAVE WHEN XCODE WAS CRASHING 9/29 I FORGOT THIS CODE IS IN THE QUESTION SWIFT FILE DELETE LATER//
     
-    struct Question {
+    /*struct Question {
         var text: String
         var type: ResponseType
         var answers: [Answer]
     }
     
+    enum ResponseType {
+        case single, multiple, ranged
+    }
+    
+    struct Answer {
+        var text: String
+        var type: AnimalType
+    }
+    
+    enum AnimalType: Character {
+        case fish = "🐟", lion = "🦁", scorpion = "🦂", ram = "🐏"
+        
+        var definition: String {
+            switch self {
+            case .fish:
+                return "You are"
+            case .lion:
+                return "The eye of the tiger"
+            case .scorpion:
+                return ""
+            case . ram:
+                return ""
+            }
+        }
+    }*/
     
     
     var questions: [Question] = [
-        Question(text: "What is your favorite food",
+        Question(text: "What sound do you make when upset or angry?",
         type: .single,
         answers: [
-            Answer(text: "Fish", type: .fish),
-            Answer(text: "Meat", type: .lion),
-            Answer(text: "Bugs", type: .scorpion),
-            Answer(text: "Vegan", type: .ram),
+            Answer(text: "Humming", type: .fish),
+            Answer(text: "Grunting", type: .lion),
+            Answer(text: "Sighing", type: .scorpion),
+            Answer(text: "High Pitched", type: .ram),
       ]
     ),
         
-        Question(text: "What is your favorite color",
+        Question(text: "What temperature are you the most comfortable?",
                  type: .multiple,
         answers: [
-            Answer(text: "green", type: .lion),
-            Answer(text: "blue", type: .scorpion),
-            Answer(text: "purple", type: .fish),
-            Answer(text: "orange", type: .ram),
+            Answer(text: "25°", type: .lion),
+            Answer(text: "80° - 90°", type: .scorpion),
+            Answer(text: "75° - 80°", type: .fish),
+            Answer(text: "60° - 75°", type: .ram),
      ]
     ),
         
-        Question(text: "What is your favorite thought",
+        Question(text: "What characteristic makes you feel confident?",
         type: .ranged,
         answers: [
-            Answer(text: "laughing", type: .fish),
-            Answer(text: "crying", type: .ram),
-            Answer(text: "dancing", type: .lion),
-            Answer(text: "running", type: .scorpion),
+            Answer(text: "Intelligence", type: .fish),
+            Answer(text: "Being Persistent", type: .ram),
+            Answer(text: "Strong", type: .lion),
+            Answer(text: "Being Powerful", type: .scorpion),
             
             ]
 )]
@@ -94,6 +125,13 @@ class QuestionViewController: UIViewController {
         updateUI ()
             
         }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Results" {
+            let resultsViewController = segue.destination as! ResultsViewController
+            resultsViewController.responses = answerChosen }
+        
+        }
+    
     
     
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
@@ -216,7 +254,9 @@ class QuestionViewController: UIViewController {
         rangedStackView.isHidden = false
         rangedSlider.setValue(0.5, animated: false)
         rangedLabel1.text = answers.first?.text
-        rangedLabel2.text = answers.last?.text
+        rangedLabel2.text = answers[1].text
+        rangedLabel3.text = answers[2].text
+        rangedLabel4.text = answers.last?.text
 
     /*
     // MARK: - Navigation

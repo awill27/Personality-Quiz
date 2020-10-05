@@ -14,6 +14,7 @@ class ResultsViewController: UIViewController {
     
     @IBOutlet weak var resultDefinitionLabel: UILabel!
     
+    @IBOutlet weak var pictureResults: UIImageView!
     
     var responses:[Answer]!
     
@@ -42,8 +43,10 @@ class ResultsViewController: UIViewController {
               newCount = oldCount + 1
        } else {
               newCount = 1
-       }
+            }
+            
        frequencyOfAnswers[response] = newCount
+            
     // I THINK I CAN SHORTEN THIS CODE. CHECK LATER
     }
     
@@ -56,9 +59,26 @@ class ResultsViewController: UIViewController {
     
 
     resultAnswerLabel.text = "You are a \(mostCommonAnswer.rawValue)!"
+        
     
-    resultDefinitionLabel.text = mostCommonAnswer.definition
+        resultDefinitionLabel.text = mostCommonAnswer.definition
+        
+        switch mostCommonAnswer {
+        case .fish:
+            pictureResults.image = UIImage(named: "Pisces")
+        case .lion:
+            pictureResults.image = UIImage(named: "Lion")
+        case .ram:
+            pictureResults.image = UIImage(named: "Ram1")
+        case .scorpion:
+            pictureResults.image = UIImage(named: "Scorpion")
+            
+        }
+        
+        //pictureResults.image = UIImage(named: "Jasmine")
+    
     }
+    
         // Do any additional setup after loading the view.
     
 
