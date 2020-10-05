@@ -339,13 +339,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfT-ho-8Fw" userLabel="pictureResults">
-                                <rect key="frame" x="37" y="550" width="341" height="258"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wfT-ho-8Fw" userLabel="pictureResults">
+                                <rect key="frame" x="37" y="550" width="340" height="258"/>
                                 <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="258" id="gS8-h5-vTv"/>
+                                </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="zwq-LM-Zvj">
-                                <rect key="frame" x="20" y="103" width="374" height="83.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="zwq-LM-Zvj">
+                                <rect key="frame" x="20" y="139" width="374" height="83.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME8-QY-ONm">
                                         <rect key="frame" x="139.5" y="0.0" width="95.5" height="42"/>
@@ -366,9 +368,12 @@
                         <viewLayoutGuide key="safeArea" id="cTP-ck-hnX"/>
                         <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zwq-LM-Zvj" firstAttribute="centerY" secondItem="4bc-Qu-m1I" secondAttribute="centerY" id="SEW-Be-IYg"/>
+                            <constraint firstItem="wfT-ho-8Fw" firstAttribute="leading" secondItem="cTP-ck-hnX" secondAttribute="leading" constant="37" id="SvY-SW-hqw"/>
+                            <constraint firstItem="zwq-LM-Zvj" firstAttribute="top" secondItem="cTP-ck-hnX" secondAttribute="top" constant="83" id="Vdf-l2-0UQ"/>
+                            <constraint firstItem="zwq-LM-Zvj" firstAttribute="centerX" secondItem="wfT-ho-8Fw" secondAttribute="centerX" id="duU-kQ-d6p"/>
                             <constraint firstItem="cTP-ck-hnX" firstAttribute="trailing" secondItem="zwq-LM-Zvj" secondAttribute="trailing" constant="20" id="jSO-wz-xuL"/>
                             <constraint firstItem="zwq-LM-Zvj" firstAttribute="leading" secondItem="cTP-ck-hnX" secondAttribute="leading" constant="20" id="qz0-aL-5GN"/>
+                            <constraint firstItem="wfT-ho-8Fw" firstAttribute="bottom" secondItem="cTP-ck-hnX" secondAttribute="bottom" id="xXC-3R-Urf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="RESULTS" id="P8G-WO-qMR">
